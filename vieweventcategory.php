@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>View employee</title>
+  <title>View Event Category</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -11,7 +11,7 @@
 <body>
 <?php
 include 'connection.php';
-$query="Select * from employee";
+$query="Select * from event_category";
 $result=mysqli_query($conn,$query);
 ?>
 <div class="container">
@@ -20,10 +20,6 @@ $result=mysqli_query($conn,$query);
       <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Email</th>
-        <th>Password</th>
-        <th>DOB</th>
-        <th>Contact</th>
         <th>Action</th>
         </tr>
     </thead>
@@ -33,13 +29,9 @@ $result=mysqli_query($conn,$query);
     {
       ?>
     <tr>
-      <td><?php echo $row['Emp_Id']?></td>
-      <td><?php echo $row['Emp_Name']?></td>
-      <td><?php echo $row['Emp_Email']?></td>
-      <td><?php echo $row['Emp_Password']?></td>
-      <td><?php echo $row['Emp_DOB']?></td>
-      <td><?php echo $row['Emp_Contact']?></td>
-      <td><a href="<?php echo 'editempoyee.php?id='.$row['Emp_Id'] ?>">Edit</a>&nbsp;<a href="<?php echo 'deleteemployee.php?id='.$row['Emp_Id'] ?>">Delete</a></td>
+      <td><?php echo $row['Category_Id']?></td>
+      <td><?php echo $row['Category_Name']?></td>
+      <td><a href="<?php echo 'editeventcategory.php?id='.$row['Category_Id'] ?>">Edit</a>&nbsp;<a href="<?php echo 'deleteeventcategory.php?id='.$row['Category_Id'] ?>">Delete</a></td>
       </tr>
     <?php
     }
