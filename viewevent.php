@@ -37,7 +37,7 @@ $result=mysqli_query($conn,$query);
       <td><?php echo $row['Category_Id']?></td>
       <td><?php echo $row['Event_Date']?></td>
       <td><?php echo $row['Event_Description']?></td>
-      <td><?php echo $row['Event_Image']?></td>
+      <td><img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Event_Image']);?>" width="100px" height="100px"/></td>
       <td><a href="<?php echo 'editevent.php?id='.$row['Event_Id'] ?>">Edit</a>&nbsp;<a href="<?php echo 'deleteevent.php?id='.$row['Event_Id'] ?>">Delete</a></td>
       </tr>
     <?php

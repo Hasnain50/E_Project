@@ -18,11 +18,13 @@ $row1=mysqli_fetch_array($result1);
 if(isset($_POST['btnSubmit']))
 {
   $Emp_Name=$_POST['Emp_Name'];
+  $empdepartment=$_POST['dddepartment'];
   $Emp_Email=$_POST['Emp_Email'];
   $Emp_Password=$_POST['Emp_Password'];
   $Emp_DOB=$_POST['Emp_DOB'];
   $Emp_Contact=$_POST['Emp_Contact'];
-  $query="UPDATE employee set ('Emp_Name','Emp_Email','Emp_Password','Emp_DOB','Emp_Contact') = ('$Emp_Name','$Emp_Email','$Emp_Password','$Emp_DOB','$Emp_Contact') where Emp_Id=".$id;
+  $query="UPDATE employee set ('Emp_Name','Emp_Dept','Emp_Email','Emp_Password','Emp_DOB','Emp_Contact') = 
+  ('$Emp_Name','$empdepartment','$Emp_Email','$Emp_Password','$Emp_DOB','$Emp_Contact') where Emp_Id=".$id;
   $result=mysqli_query($conn,$query);
   if($result)
   {

@@ -20,6 +20,7 @@ $result=mysqli_query($conn,$query);
       <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Employee Department</th>
         <th>Email</th>
         <th>Password</th>
         <th>DOB</th>
@@ -31,10 +32,24 @@ $result=mysqli_query($conn,$query);
     <?php
     while ($row=mysqli_fetch_array($result))
     {
+     
+      if($row['Emp_Dept']!=null)
+      {
+      $dQuery="Select * from department where Dep_Id=".$row['Emp_Dept'];
+      $dResult=mysqli_query($conn,$dQuery);
+      $dRow=mysqli_fetch_array($dResult);
+      }
       ?>
     <tr>
       <td><?php echo $row['Emp_Id']?></td>
       <td><?php echo $row['Emp_Name']?></td>
+      <?php if($row['Emp_Dept']!=null){ ?>
+      <td><?php echo $dRow['Dep_Name'];?></td>
+      <?php
+    } else{ ?>
+      <td></td>
+      <?php 
+    }?>
       <td><?php echo $row['Emp_Email']?></td>
       <td><?php echo $row['Emp_Password']?></td>
       <td><?php echo $row['Emp_DOB']?></td>
